@@ -11,7 +11,8 @@ class InputToDo extends React.Component{
         this.setState({[e.target.name]: e.target.value})
     }
 
-    addItem=()=>{
+    addItem=(e)=>{
+        e.preventDefault()
         console.log(this.state.title)
         this.props.handleAddItemProp(this.state.title)
         this.setState({title:""})
@@ -23,7 +24,7 @@ class InputToDo extends React.Component{
                 <form className="form-container">
                     <input type="text" name="title" className="input-text" placeholder="Ad Todo ..." value={this.state.title}
                     onChange={this.handleOnchange} />
-                    <button onClick={()=>this.addItem()} className="input-submit">Submit</button>
+                    <button onClick={this.addItem} className="input-submit">Submit</button>
                 </form>
             </div>
         );
