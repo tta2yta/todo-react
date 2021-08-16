@@ -3,6 +3,7 @@ import React from "react";
 import ToDoList from "./ToDoList"
 import InputToDo from "./InputToDo"
 import Header from "./Header";
+import { v4 as uuidv4 } from "uuid";
 
 class ToDoContainer extends React.Component {
     constructor(props)
@@ -66,7 +67,7 @@ class ToDoContainer extends React.Component {
 
     handleAddItem=(title)=>{
         const newItem = {
-        id:this.state.toDoList.length + 1,
+        id:uuidv4(),
         title:title,
         completed:false
     }
