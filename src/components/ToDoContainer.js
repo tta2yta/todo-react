@@ -100,7 +100,9 @@ class ToDoContainer extends React.Component {
 
     componentDidUpdate(prevProps, prevState){
         if(prevState.toDoList !== this.state.toDoList){
-            
+            const temp = JSON.stringify(this.state.todos)
+            localStorage.setItem("todos", temp)
+        
         }
     }
 
