@@ -2,6 +2,7 @@ import { react } from "@babel/types";
 import React from "react";
 import ToDoList from "./ToDoList"
 import InputToDo from "./InputToDo"
+import Header from "./Header";
 
 class ToDoContainer extends React.Component {
     constructor(props)
@@ -76,11 +77,13 @@ class ToDoContainer extends React.Component {
 
     render(){
         return(
-            <div>
-                <h1>ToDo List</h1>
+            <div className="container">
+            <div className="inner">
+                <Header />
                 <InputToDo handleAddItemProp={this.handleAddItem} />
                 <ToDoList todos={this.state.toDoList} handleChangeProps={this.handleChange}
                 handleDelItemProp={this.handleDelItem} />
+            </div>
             </div>
         );
     }

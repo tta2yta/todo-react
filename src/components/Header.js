@@ -1,6 +1,10 @@
-const header=()=>{
+const Header=()=>{
+    const headerStyle = {
+        padding: "20px 0",
+        lineHeight: "1.5em",
+      }
     return (
-        <header>
+        <header className="headerStyle">
           <h1
             style={{
               fontSize: "6rem",
@@ -18,4 +22,4 @@ const header=()=>{
     );
 }
 
-export default header
+export default Header
