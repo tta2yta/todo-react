@@ -96,6 +96,14 @@ class ToDoContainer extends React.Component {
         fetch("https://jsonplaceholder.typicode.com/todos?_limit=10")
         .then(res=>res.json())
         .then(data=>this.setState({toDoList:data}))
+
+        const temp = localStorage.getItem("todos")
+        // const loadedTodos = JSON.parse(temp)
+        if (temp) {
+            this.setState({
+            todos: temp
+            })
+        }
     }
 
     componentDidUpdate(prevProps, prevState){
