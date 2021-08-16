@@ -40,7 +40,8 @@ class ToDoItem extends React.Component{
                 {this.props.item.title}
                 </span>
                 <div onDoubleClick={()=>this.handleEditing()} style={viewMode}>...</div>
-                <input type="text"  className={styles.textInput} style={editMode} />
+                <input type="text"  className={styles.textInput} style={editMode} 
+                onChange={e=>{this.props.handleUpdateItemProp(title, id)}} />
                 </li>
         );
     }

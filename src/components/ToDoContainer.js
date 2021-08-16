@@ -73,7 +73,25 @@ class ToDoContainer extends React.Component {
     }
 
     this.setState({toDoList: [...this.state.toDoList, newItem]})
+    console.log(this.state.toDoList)
 
+    }
+
+    handleUpdateItem=(title, id)=>{
+        console.log("Updated" + id + " " + title)
+        this.setState({toDoList: this.state.toDoList.map(item=>{
+            if (item.id == id)
+                item.title=title
+            return item;
+        }
+        
+        )})
+
+        console.log("update object " + JSON.stringify(this.state.toDoList))
+    }
+
+    componentDidUpdate(){
+        console.log("update object " + this.state.toDoList);
     }
 
     render(){
@@ -83,7 +101,7 @@ class ToDoContainer extends React.Component {
                 <Header />
                 <InputToDo handleAddItemProp={this.handleAddItem} />
                 <ToDoList todos={this.state.toDoList} handleChangeProps={this.handleChange}
-                handleDelItemProp={this.handleDelItem} />
+                handleDelItemProp={this.handleDelItem} handleUpdateItemProp={this.handleUpdateItem} />
             </div>
             </div>
         );
