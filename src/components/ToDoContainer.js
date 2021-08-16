@@ -10,21 +10,22 @@ class ToDoContainer extends React.Component {
     {
         super(props);
         this.state={
-            toDoList:[{
-                id:1,
-                title:"list-1",
-                completed:true
-            },
-            {
-                id:2,
-                title:"list-2",
-                completed:true
-            },
-            {
-                id:3,
-                title:"list-3",
-                completed:true
-            }]
+            // toDoList:[{
+            //     id:1,
+            //     title:"list-1",
+            //     completed:true
+            // },
+            // {
+            //     id:2,
+            //     title:"list-2",
+            //     completed:true
+            // },
+            // {
+            //     id:3,
+            //     title:"list-3",
+            //     completed:true
+            // }]
+            toDoList:[]
         }
     }
 
@@ -92,6 +93,9 @@ class ToDoContainer extends React.Component {
 
     componentDidUpdate(){
         console.log("update object " + this.state.toDoList);
+        fetch("https://jsonplaceholder.typicode.com/todos?_limit=10")
+        .then(res=>res.json())
+        .then(data=>this.setState({toDoList:data}))
     }
 
     render(){
