@@ -3,7 +3,12 @@ import styles from '../css/TodoItem.module.scss'
 class ToDoItem extends React.Component{
     constructor(props){
         super(props)
-        this.state={}
+        this.state={editing : false}
+    }
+
+    handleEditing=()=>{
+        console.log("Editing")
+        this.setState({editing:true})
     }
    
     render()
@@ -15,6 +20,14 @@ class ToDoItem extends React.Component{
         textDecoration: "line-through",
       }
       const {id, title, completed}= this.props.item
+
+      const viewMode={}
+      const editMode={}
+
+      if(this.state.editing)
+        viewMode.display="none"
+      else
+      editMode.display="none"
         return(
             
             <li key={this.props.key} className={styles.item}>
@@ -26,6 +39,8 @@ class ToDoItem extends React.Component{
                 <span style={completed ? completedStyle : null}>
                 {this.props.item.title}
                 </span>
+                <div onDoubleClick={()=>this.handleEditing()} style={viewMode}>...</div>
+                <input type="text"  className={styles.textInput} style={editMode} />
                 </li>
         );
     }
