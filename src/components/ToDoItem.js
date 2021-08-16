@@ -10,6 +10,12 @@ class ToDoItem extends React.Component{
         console.log("Editing")
         this.setState({editing:true})
     }
+
+    handleUpdateDone=(e)=>{
+        if(e.key==='Enter'){
+            this.setState({editing:false})
+        }
+    }
    
     render()
 {
@@ -40,8 +46,9 @@ class ToDoItem extends React.Component{
                 {this.props.item.title}
                 </span>
                 <div onDoubleClick={()=>this.handleEditing()} style={viewMode}>...</div>
-                <input type="text"  className={styles.textInput} style={editMode} 
-                onChange={e=>{this.props.handleUpdateItemProp(title, id)}} />
+                <input type="text" value={title} className={styles.textInput} style={editMode} 
+                onChange={e=>{this.props.handleUpdateItemProp(e.target.value, id)}}
+                onKeyDown={this.handleUpdateDone} />
                 </li>
         );
     }
