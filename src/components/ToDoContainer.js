@@ -91,11 +91,17 @@ class ToDoContainer extends React.Component {
         console.log("update object " + JSON.stringify(this.state.toDoList))
     }
 
-    componentDidUpdate(){
+    componentDidMount(){
         console.log("update object " + this.state.toDoList);
         fetch("https://jsonplaceholder.typicode.com/todos?_limit=10")
         .then(res=>res.json())
         .then(data=>this.setState({toDoList:data}))
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        if(prevState.toDoList !== this.state.toDoList){
+            
+        }
     }
 
     render(){
