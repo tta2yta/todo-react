@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import {Route, Switch} from "react-router-dom"
 import About from "../pages/about";
 import NoMatch from "../pages/nomatch";
+import NavBar from './Navbar';
 
 class ToDoContainer extends React.Component {
     constructor(props)
@@ -120,6 +121,8 @@ class ToDoContainer extends React.Component {
     render(){
         return(
             <>
+            <NavBar />
+            <Switch>
             <Route exact path="/">
             <div className="container">
             <div className="inner">
@@ -133,9 +136,10 @@ class ToDoContainer extends React.Component {
          <Route path="/about">
          <About />
         </Route>
-        <Route path="/nomatch">
+        <Route path="*">
         <NoMatch />
         </Route>
+        </Switch>
          </>
         );
     }
