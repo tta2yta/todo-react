@@ -117,7 +117,7 @@ class ToDoContainer extends React.Component {
 
     render(){
         return(
-            <Route path="/">
+            <Route exact path="/">
             <div className="container">
             <div className="inner">
                 <Header />
