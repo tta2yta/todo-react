@@ -5,6 +5,8 @@ import InputToDo from "./InputToDo"
 import Header from "./Header";
 import { v4 as uuidv4 } from "uuid";
 import {Route, Switch} from "react-router-dom"
+import About from "../pages/about";
+import NoMatch from "../pages/nomatch";
 
 class ToDoContainer extends React.Component {
     constructor(props)
@@ -117,6 +119,7 @@ class ToDoContainer extends React.Component {
 
     render(){
         return(
+            <>
             <Route exact path="/">
             <div className="container">
             <div className="inner">
@@ -127,6 +130,13 @@ class ToDoContainer extends React.Component {
             </div>
             </div>
          </Route>
+         <Route path="/about">
+         <About />
+        </Route>
+        <Route path="/nomatch">
+        <NoMatch />
+        </Route>
+         </>
         );
     }
 }
