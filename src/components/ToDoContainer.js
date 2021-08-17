@@ -4,6 +4,7 @@ import ToDoList from "./ToDoList"
 import InputToDo from "./InputToDo"
 import Header from "./Header";
 import { v4 as uuidv4 } from "uuid";
+import {Route, Switch} from "react-router-dom"
 
 class ToDoContainer extends React.Component {
     constructor(props)
@@ -116,6 +117,7 @@ class ToDoContainer extends React.Component {
 
     render(){
         return(
+            <Route path="/">
             <div className="container">
             <div className="inner">
                 <Header />
@@ -124,6 +126,7 @@ class ToDoContainer extends React.Component {
                 handleDelItemProp={this.handleDelItem} handleUpdateItemProp={this.handleUpdateItem} />
             </div>
             </div>
+         </Route>
         );
     }
 }
